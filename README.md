@@ -1,31 +1,53 @@
 # Financial Performance Dashboard (Power BI)
 
-This repository contains an end-to-end **financial performance analysis** built using **Power BI**.  
-The dashboard provides insights into sales, profit, discount impact, product performance, and country-level trends through interactive visuals and DAX measures.
+## Project Overview
+
+Organizations often have access to sales data but struggle to turn it into **clear, actionable financial insight**.
+Raw figures alone do not explain how profitability changes across markets, products, or time.
+
+This project delivers a **financial performance dashboard** built with **Power BI**, focusing on sales, profit, discount impact, and time-based comparisons using well-defined DAX measures.
+
+The goal is to support **fact-based decision making**, not just reporting.
 
 ---
 
-## 📊 Dashboard Overview
+## Business Context & Questions
 
-The dashboard includes:
-- KPI cards for **Total Sales, Total Profit, Average Sales, and Average Profit**
-- Country-level profit analysis
-- Discount band impact on profitability
-- Product and segment-based profit comparison
-- Time-based sales and profit trends
+The dashboard is designed to answer practical finance questions such as:
 
----
-
-## 🎯 Business Questions Addressed
-
-- How do sales and profit vary across countries?
-- What is the impact of different discount bands on profitability?
-- Which products and customer segments generate the highest profit?
-- How do sales, profit, and units sold change over time?
+- How do sales and profit differ across countries?
+- Which products and segments contribute most to total profit?
+- What is the financial impact of different discount bands?
+- How does current performance compare with the same period last year?
+- How do cumulative sales evolve throughout the year?
 
 ---
 
-## 📌 Key KPIs
+## Analytical Approach
+
+The solution follows a structured analytics workflow:
+
+1. **Data modeling** using a fact table and related dimension tables
+2. **Base financial measures** (sales and profit aggregations)
+3. **Filtered measures** for specific business conditions (year, discount band)
+4. **Time intelligence measures** for:
+   - Year-to-date (YTD) analysis
+   - Same Period Last Year (SPLY) comparison
+5. **Interactive visuals** that respond consistently to slicers and filters
+
+All calculations are implemented using explicit DAX measures.
+
+---
+
+## Dashboard Preview
+
+![Dashboard Overview](dashboard/dashboard_overview.png)
+
+---
+
+## Key KPIs
+
+The report includes the following core metrics:
 
 - Total Sales  
 - Total Profit  
@@ -33,54 +55,70 @@ The dashboard includes:
 - Average Profit  
 - Units Sold  
 
----
-
-## 🧮 DAX Measures
-
-The project includes custom DAX measures such as:
-- Total Sales  
-- Total Profit  
-- Average Sales  
-- Average Profit  
-- YTD, SPLY, and comparison metrics  
-
-All measures are documented separately in the `measures/` folder.
+These KPIs provide a high-level financial snapshot and support deeper analysis.
 
 ---
 
-## 🗂 Data
+## DAX Measures
+
+All business logic is implemented using documented DAX measures, grouped into:
+
+- Base aggregation measures  
+- Business-condition filtered measures  
+- Time intelligence measures (YTD and SPLY)
+
+📄 Full measure documentation:  
+`measures/all_measures.md`
+
+> Note: This project includes **YTD** and **Same Period Last Year (SPLY)** comparisons.  
+
+
+---
+
+## Data
 
 - **Source:** Case study dataset  
 - **Format:** Excel  
-- **Main Dimensions:**  
-  - Date  
-  - Country  
-  - Product  
-  - Segment  
-  - Discount Band  
+- **Content:** Transaction-level sales data  
+- **Main dimensions:** Date, Country, Product, Segment, Discount Band  
 
-The dataset is stored in the `data/` folder.
+A short data dictionary is provided in the `data/` folder.
 
 ---
 
-## 🛠 Tools & Technologies
+## Tools & Technologies
 
 - Power BI Desktop  
 - DAX  
 - Data Modeling  
-- Data Visualization  
+- Financial & Time-Based Analysis  
 
 ---
 
-## 🚀 How to Use
+## How to Use
 
-1. Download the `.pbix` file from the `dashboard/` folder  
-2. Open it using **Power BI Desktop**  
-3. Explore the dashboard using slicers and interactive visuals  
+1. Download `dashboard/Financial_Report.pbix`
+2. Open the file in **Power BI Desktop**
+3. When prompted, update the data source path to:
+   ```
+   data/CaseStudy.xlsx
+   ```
+4. Explore the report using slicers and interactive visuals
 
 ---
 
-## 👤 Author
+## Repository Structure
+
+```
+dashboard/   → Power BI report and dashboard preview  
+data/        → Dataset and data dictionary  
+measures/    → DAX measures documentation  
+docs/        → Business questions and context  
+```
+
+---
+
+## Author
 
 **Özge Güneş**  
 Power BI • Data Analytics • Financial Analysis
